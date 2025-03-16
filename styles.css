@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: LTKaraokeBodyR;
+}
+
+@font-face {
+    font-family: 'LTKaraokeBody';
+    src: url('LTKaraokeBody-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LTKaraokeBodyR';
+    src: url('LTKaraokeBody-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: snow;
+    display: flex;
+    flex-direction: column;
+    filter: blur(0.30px);
+}
+
+.beta {
+    border: 2px solid black;
+}
+
+.case_build {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    background: linear-gradient(rgba(46, 46, 46, 0.8), rgba(46, 46, 46, 0.8)), url("https://www.hoviconsulting.fi/wp-content/uploads/2024/09/rivari-1.png") center/cover no-repeat;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    opacity: 12;
+    z-index: -1;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    text-align: center;
+}
+
+.case_build h1 {
+    font-family: LTKaraokeBody;
+    font-size: 4vw;
+    font-weight: normal;
+    text-wrap: wrap;
+    scale: 1.2;
+    z-index: 0.1;
+    margin-top: 1%;
+    filter: blur(unset);
+}
+
+.case_build p {
+    margin-top: 3.5%;
+    font-size: 1.5vw;
+    padding: 0% 25vw;
+}
+
+.case_build .building {
+    width: 50%;
+    display: flex;
+    align-items: flex-end;
+    z-index: 2;
+}
+
+.building img {
+    width: 100%;
+}
+
+.case_limiter {
+    justify-content: center;
+    width: 65%;
+    overflow: hidden;
+}
+
+.upscale {
+    width: 85% !important;
+}
+
+.im1 {
+    min-width: 40%;
+}
+
+.im2 {
+    min-width: 29%;
+}
+
+.im3 {
+    min-width: 31%;
+    margin-left: 4.3%;
+    margin-bottom: -1%;
+}
+
+.im1,
+.im2,
+.im3 {
+    scale: 1.15;
+    opacity: 0.85;
+}
+
+.content {
+    min-width: 100%;
+    min-height: 100px;
+    color: black;
+    box-sizing: border-box;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+    box-shadow: 1px -11px 19px -2px rgba(0, 0, 0, 0.03) inset;
+    -webkit-box-shadow: 1px -11px 19px -2px rgba(0, 0, 0, 0.03) inset;
+    -moz-box-shadow: 1px -11px 19px -2px rgba(0, 0, 0, 0.03) inset;
+}
+
+.desc {
+    max-width: 60%;
+    font-size: 1.4vw;
+    padding: 0% 30vw 0% 6.5vw;
+    box-sizing: border-box;
+    justify-content: center;
+    line-height: 1.8vw;
+}
+
+.desc h3 {
+    margin-bottom: 2vh;
+}
+
+.foto {
+    max-width: 40%;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-left: -3vw;
+}
+
+.left {
+    margin-left: 6vw;
+}
+
+.right {
+    text-align: right;
+    padding: 0% 6.5vw 0% 13vw;
+}
+
+.foto img {
+    width: 100%;
+}
+
+.quote {
+    display: flex;
+    min-width: 100%;
+    min-height: 150px;
+    background-color: #36416D;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote h2 {
+    font-family: LTKaraokeBodyR;
+    display: flex;
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+}
+
+.info {
+    background-color: #232A47;
+    min-width: 100%;
+    min-height: 100px;
+    font-size: 1.7vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    line-height: 2.8vw;
+    font-size: 20px;
+}
+
+.separator {
+    min-width: 10%;
+    color: transparent !important;
+    user-select: none;
+}
