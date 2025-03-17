@@ -1,13 +1,10 @@
 $(document).ready(function() {
-    setTimeout(function(){
-        $(".window1").css("background-color", "#E8AA00");
-    }, 2700);
-    setTimeout(function(){
-        $(".window2").css("background-color", "#E8AA00");
-    }, 2900);
-    setTimeout(function(){
-        $(".window3").css("background-color", "#E8AA00");
-    }, 3100);
+    function blockScroll() {
+        document.body.style.overflow = 'hidden';
+    }
+    function unblockScroll() {
+        document.body.style.overflow = '';
+    }
     function hideMenu() {
         setTimeout(function () {
             if (!$(".octagon:hover").length && !$(".sidemenu:hover").length) {
@@ -16,4 +13,15 @@ $(document).ready(function() {
             }
         }, 350);
     }
+    $(".octagon, .sidemenu").hover(
+        function () {
+            $(".movement").css("transform", "translateX(-16%)");
+            $(".sidemenu").css("left", "84%");
+            blockScroll();
+        },
+        function () {
+            hideMenu();
+            unblockScroll();
+        }
+    );
 })
