@@ -96,23 +96,21 @@ body {
 }
 
 .im1 {
-    min-width: 40%;
+    min-width: 41%;
 }
 
 .im2 {
-    min-width: 29%;
+    min-width: 25%;
 }
 
 .im3 {
-    min-width: 31%;
-    margin-left: 4.3%;
-    margin-bottom: -1%;
+    min-width: 25%;
 }
 
 .im1,
 .im2,
 .im3 {
-    scale: 1.15;
+
     opacity: 0.85;
 }
 
