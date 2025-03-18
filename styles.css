@@ -35,6 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     filter: blur(0.30px);
+    overflow-x: hidden;
 }
 
 .beta {
@@ -50,11 +51,12 @@ body {
     top: 0;
     left: 0;
     min-width: 100%;
-    opacity: 12;
-    z-index: -1;
+    opacity: 1;
+    z-index: 1;
     padding-bottom: 5%;
     padding-top: 5%;
     text-align: center;
+    margin-top: -5%;
 }
 
 .case_build h1 {
@@ -70,7 +72,7 @@ body {
 
 .case_build p {
     margin-top: 3.5%;
-    font-size: 1.5vw;
+    font-size: 1.6vw;
     padding: 0% 25vw;
 }
 
@@ -193,45 +195,80 @@ body {
     user-select: none;
 }
 .movement {
+    position: absolute;
     transition: transform 0.5s ease-in-out;
-    transform: translateX(0);
+    width: 100%;
+    height: 157vw;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 0;
 }
 .sidemenu {
-    position: fixed;
-    width: 300px;
-    height: 300vh;
-    left: 100%;
+    position: relative;
     transition: 0.5s ease-in-out;
     text-align: center;
-    background-color: #cccccc;
-    top: -0px;
-    z-index: 102;
-    color: black;
+    background-color: #36416D;
+    color: rgb(255, 255, 255);
+    min-width: 15%;
+    min-height: 100vh;
+    padding-top: 1vw;
+    font-size: 28px;
+    user-select: none;
+    transform: translateX(100%);
+    z-index: 1000;
+    padding-top: 5%;
+}
+.sidemenu a {
+    font-family: Lato;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10%;
 }
 .octagon {
-    position: fixed;
-    margin-top: 1%;
-    z-index: 1000;
-    margin-left: 94vw;
+    position: relative;
+    display: flex;
     background: rgb(15, 15, 15, 0.5);
     border-radius: 37px;
-    width: 5%;
-    max-height: 60px;
     justify-content: center;
-    padding-top: 15px;
-    z-index: 101;
+     z-index: 1001 !important;
+    width: 100px;
+    height: 55px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 23px;
+    cursor: pointer;
+    pointer-events: auto;
 }
 .octagon img {
     z-index: 2;
-    max-width: 100px;
+    max-width: 110%;
     scale: 1;
+    pointer-events: auto;
+}
+.integrator {
+    min-width: 100%;
+    max-height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1%;
+    padding-top: 0.5%;
+    z-index: 100;
 }
 .empty {
     color: transparent !important;
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.7);
     user-select: none !important;
 }
-.menu {
-    font-size: 42px;
-    margin-top: 4%;
+.octagondubler {
+    position: absolute;
+    min-width:100px;
+    height: 70px;
+    left: 5%;
+    top: 2%;
+}
+.current {
+    font-size: 43px !important;
+    text-decoration: none !important;
+    margin-bottom: 20% !important;
+    cursor: default !important;
 }
