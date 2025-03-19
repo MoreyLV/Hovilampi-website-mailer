@@ -272,3 +272,7 @@ body {
     margin-bottom: 20% !important;
     cursor: default !important;
 }
+html {
+    scrollbar-gutter: stable;
+    background-color: #36416D;
+}
