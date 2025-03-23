@@ -96,24 +96,32 @@ body {
 .upscale {
     width: 85% !important;
 }
+.im1,
+.im2,
+.im3 {
+    filter: blur(0.5px);
+    opacity: 0.0;
 
+}
 .im1 {
     min-width: 41%;
+    animation: greetanimate 1s ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 .im2 {
     min-width: 25%;
+    animation: greetanimate 0.8s ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 .im3 {
     min-width: 25%;
-}
-
-.im1,
-.im2,
-.im3 {
-
-    opacity: 0.85;
+    animation: greetanimate 1.8s ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 .content {
@@ -427,4 +435,14 @@ html {
 }
 .CTdubler {
     left: 7%;
+}
+@keyframes greetanimate {
+    0% {
+        transform: translateY(100%);
+        opacity: 0.0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 0.95;
+    }
 }

@@ -40,4 +40,7 @@ $(document).ready(function() {
             });
         }
     });
+    setTimeout(function(){
+        $(".postsend").addClass("animate__pulse");
+    }, 1000);
 });
