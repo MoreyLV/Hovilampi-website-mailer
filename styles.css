@@ -36,6 +36,7 @@ body {
     flex-direction: column;
     filter: blur(0.30px);
     overflow-x: hidden;
+    z-index: 1;
 }
 
 .beta {
@@ -173,9 +174,13 @@ body {
     display: flex;
     min-width: 100%;
     min-height: 150px;
-    background-color: #36416D;
+    background-color: #ECECEC;
     justify-content: center;
     align-items: center;
+    box-shadow: 1px -11px 19px -2px rgba(0, 0, 0, 0.03) inset;
+    -webkit-box-shadow: 1px -11px 19px -2px rgba(0, 0, 0, 0.03) inset;
+    -moz-box-shadow: 1px -11px 19px -2px rgba(0, 0, 0, 0.03) inset;
+    
 }
 
 .quote h2 {
@@ -183,10 +188,12 @@ body {
     display: flex;
     color: rgb(255, 255, 255);
     font-size: 35px;
+    color: #000000 !important;
 }
 
 .info {
-    background-color: #232A47;
+    background: rgb(230,230,230);
+    background: linear-gradient(261deg, rgb(197, 197, 197) 25%, rgba(166,166,166,1)  75%);
     min-width: 100%;
     min-height: 100px;
     font-size: 1.7vw;
@@ -195,6 +202,10 @@ body {
     display: flex;
     line-height: 2.8vw;
     font-size: 20px;
+    color: #000000;
+    box-shadow: 1px -11px 19px -2px rgba(0, 0, 0, 0.03) inset;
+    -webkit-box-shadow: 1px -11px 19px -2px rgba(0, 0, 0, 0.03) inset;
+    -moz-box-shadow: 1px -11px 19px -2px rgba(0, 0, 0, 0.03) inset;
 }
 
 .separator {
@@ -209,13 +220,13 @@ body {
     height: 157vw;
     display: flex;
     justify-content: flex-end;
-    z-index: 0;
+    z-index: -1 !important;
 }
 .sidemenu {
     position: relative;
     transition: 0.5s ease-in-out;
     text-align: center;
-    background-color: #36416D;
+    background-color: #737373;
     color: rgb(255, 255, 255);
     min-width: 15%;
     min-height: 100vh;
@@ -291,19 +302,24 @@ body {
 }
 html {
     scrollbar-gutter: stable;
-    background-color: #36416D;
+    background-color: #737373;
 }
 .CThead {
     min-width: 100%;
     min-height: 160px;
-    background-color: #232A47;
+    background: rgb(230,230,230);
+    background: linear-gradient(261deg, rgba(233,233,233,1) 25%, rgba(166,166,166,1)  75%);
 }
 .CTMBadjusted {
     margin-right: 0.5%;
 }
 .CTQadjusted {
-    background-color: #232A47 !important;
+    background: rgb(230,230,230);
+    background: linear-gradient(261deg, rgba(233,233,233,1) 25%, rgba(166,166,166,1)  75%);
     min-height: 207px !important;
+}
+.CTQadjusted h2 {
+    color: #000000 !important;
 }
 .CTdata {
     color: black;
@@ -336,16 +352,27 @@ html {
     margin-bottom: 15%;
     margin-top: -5%;
 }
-.CTinfo button {
+.postsend {
     font-family: Lato;
-    background-color: #232A47;
+    background-color: #545454;
     color: #ffffff;
     border-radius: 25px;
-    min-height: 2vw;
-    border: transparent;
+    min-height: 50px;
     font-size: 25px;
     min-width: 15%;
-     padding: 0% 20%;
+    transition: 0.3s ease-in-out;
+    z-index: 1000;
+    border-color: transparent;
+    cursor: pointer;
+}
+.postsend:hover {
+    background-color: #3a3939;
+    border-radius: 12px;
+}
+.postsend:active {
+    scale: 0.9;
+    background-color: #3a3939;
+    border-radius: 12px;
 }
 .CTsidemenu {
     max-height: 90vh !important;
@@ -358,7 +385,8 @@ html {
 .RFgreet {
     min-width: 100%;
     min-height: 100px;
-    background-color: #232A47;
+    background: rgb(230,230,230);
+    background: linear-gradient(261deg, rgba(233,233,233,1) 25%, rgba(166,166,166,1)  75%);;
     text-align: center;
     display: flex;
     align-items: center;
@@ -369,9 +397,10 @@ html {
     min-height: 150px;
 }
 .greeter h1 {
-    font-family: Playpen Sans;
+    font-family: Lato;
     font-size: 72px;
-    margin-top: -1vw;
+    margin-top: 0vw;
+    color: #000000;
 }
 .references  {
     color: black;
@@ -404,9 +433,12 @@ html {
     min-width: 50%;
     text-align: center;
 }
-.googlemap h3 {
+.googlemap a {
     margin-bottom: 1%;
+    font-weight: bold;
+    color: #000000 !important;
     text-decoration: underline;
+    font-size: 1.17em;
 }
 /*.googlemap iframe {
     width: 90%;
@@ -445,4 +477,136 @@ html {
         transform: translateY(0%);
         opacity: 0.95;
     }
+}
+.contact-form {
+    display: flex;
+    position: absolute;
+    background-color: #3a3939;
+    min-width: 33%;
+    min-height: 60vh;
+    top: 18.5%;
+    left: 58.5%;
+    border-radius: 12px;
+    z-index: 1003;
+    justify-content: center;
+    align-items: center;
+    padding: 3% 5%;
+    box-sizing: border-box;
+    font-size: 1.5em;
+    opacity: 0;
+    pointer-events: none;
+    cursor: none;
+    transition: 0.3s ease-in-out;
+}
+.show-form{
+    opacity: 1;
+    pointer-events: all;
+    cursor: default;
+}
+.form {
+    display: flex;
+    align-items: center;
+    height: 90%;
+    margin-top: 15%;
+    margin-bottom: 45%;
+    margin-left: -3%;
+    box-sizing: border-box;
+    scale: 1.5;
+    font-family: Lato;
+    transition: 0.3s ease-in-out;
+}
+.form input {
+    min-width: 50%;
+    box-sizing: border-box;
+    height: 2em;
+    padding: 0% 5%;
+    padding-top: 1%;
+    border-radius: 10px;
+    border-color: transparent;
+}
+.form-devider {
+    min-width: 11.5%;
+}
+.between {
+    display: flex;
+    justify-content: space-around;
+}
+#name {
+    margin-left: -4%;
+}
+#company-name {
+    margin-top: 10%;
+    margin-left: 2.8%;
+    min-width: 111.5%;
+}
+#email {
+    margin-top: 10%;
+    margin-left: 2.8%;
+    min-width: 111.5%;
+}
+.form-button {
+    position: absolute;
+    margin-top: 60%;
+    border: 1px solid rgb(165, 162, 162);
+    border-radius: 15px;
+    padding: 5% 20%;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #9c9a9a;
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+.form-button:hover {
+    background-color: #5e5c5c;
+    border-color: #9c9a9a;
+}
+.form-button:active {
+    background-color: white;
+    color: #000000;
+}
+.CTdata {
+    overflow: hidden;
+}
+.close {
+    position: absolute;
+    width: 10%;
+    background-color: #ffffff;
+    padding: 0.5%;
+    box-sizing: content-box;
+    border-radius: 35px;
+    padding-bottom: 5%;
+    overflow: hidden;
+    transform: rotateZ(-90deg);
+    top: -70%;
+    left: -10%;
+    transition: 0.3s ease-in-out;
+}
+.close img{
+    width: 100%;
+    transition: 0.3s ease-in-out;
+}
+.close:hover img{
+    transform: translateY(15%);
+    transition: 0.1s ;
+}
+.close:active img{
+    transform: translateY(60%);
+}
+.spamptc {
+    visibility: none;
+}
+#alerter {
+    position: absolute;
+    min-width: 70%;
+    min-height: 40px;
+    background-color: #cecaca;
+    color: #000000;
+    border-radius: 12px;
+    border: 2px solid red;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 2% 6%;
+    box-sizing: border-box;
+    opacity: 0.9;
 }

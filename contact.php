@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+?>
+
 <!DOCTYPE html>
 <html class="CTHTML">
 
@@ -13,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <script src="wow.min.js"></script>
+
     <script>
         new WOW().init();
     </script>
@@ -44,11 +53,27 @@
                 +358503871655<br>
                 3460437-1
             </h3>
-            <button class="postsend animate__animated wow">Lähetä Meille Sähköpostia</button>
+            <button class="postsend animate__animated wow">Ota Yhteyttä</button>
         </div>
     </div>
     <div class="quote CTQadjusted">
         <h2>“Kohde valmistui aikataulussa”</h2>
+    </div>
+    <div class="contact-form column">
+        <h1>Contact Form</h1>
+        <form id="contactForm" class="form column">
+    <a id="close" class="close"><img src="cross.png"></a>
+    <div class="row between">
+        <input id="name" name="user_name" placeholder="Name" required>
+        <div class="form-devider"></div>
+        <input id="surname" name="user_surname" placeholder="Surname" required>
+    </div>
+    
+    <input id="company-name" name="company_name" placeholder="Company Name (optional)">
+    <input id="email" name="email" placeholder="Email" required>
+    <button type="subbmit" id="sendButton" class="form-button">Send</button>
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+</form>
     </div>
 </body>
 </html>
