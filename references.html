@@ -9,22 +9,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <script src="wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
+    <script>
+        function loadScript(src) {
+        const script = document.createElement("script");
+        script.src = src;
+        script.type = "text/javascript";
+        script.async = true;
+        document.head.appendChild(script);
+    }
+
+    function checkDevice() {
+        if (window.matchMedia("(max-width: 767px)").matches) {
+            loadScript("script_mobile.js");
+        } else {
+            loadScript("script.js");
+        }
+    }
+    document.addEventListener("DOMContentLoaded", checkDevice);
+    window.addEventListener("resize", checkDevice);
+    </script>
 </head>
 <body class="column">
-    <div class="movement">
-        <div class="sidemenu column">
-            <a href="index.html">Main page</a>
-            <a href="references.html"  class="current RFcurrent">References</a>
-            <a href="contact.html">Information</a>
-            
-        </div>
+    <div class="sidemenu column">
+        <a href="index.html">Main page</a>
+        <a href="references.html" class="current">References</a>
+        <a href="contact.php">Information</a>
+        <button class="backbtn"><img src="arrowb.svg"></button>
     </div>
 
     <div class="RFgreet column">
@@ -47,7 +63,7 @@
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/GEvNzqCd3u5jQZHBA" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/Qkrmggt7EGtEdm6H7" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class=" devider row"><a href="https://maps.app.goo.gl/GEvNzqCd3u5jQZHBA" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/Qkrmggt7EGtEdm6H7" target="_blank" rel="noopener noreferrer">Street view</a></div>
                     </div>
                 </div>
             </div>
@@ -214,15 +230,15 @@ Liiketilan muutostyö ravintolatilaksi valmistui lokakuussa 2024
     </div>
 
     <div class="info row">
-        <div class="column">
+        <div class="mobile_info column">
             <p>
                 M. Hovilampi Consulting Oy<br> +358503871655
             </p>
         </div>
         <div class="separator ">.</div>
-        <div class="column">
+        <div class="mobile_info_right column">
             <p>
-                Tuokkostie 2, 02710 Espoo<br> 3460437-1
+                Tuokkostie 2<br> 02710 Espoo<br> 3460437-1
             </p>
         </div>
     </div>
