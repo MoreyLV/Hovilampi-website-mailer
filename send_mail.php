@@ -20,7 +20,9 @@ session_start();
     $surname = htmlspecialchars($_POST['user_surname']);
     $company = htmlspecialchars($_POST['company_name']);
     $email = htmlspecialchars($_POST['email']);
-
+        if (empty($name) || empty($surname) || empty($email)) {
+            die('Please fill in all required fields.');
+        }
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;

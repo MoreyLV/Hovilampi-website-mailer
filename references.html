@@ -25,9 +25,31 @@
     }
 
     function checkDevice() {
-        if (window.matchMedia("(max-width: 767px)").matches) {
+        if (window.matchMedia("(max-width: 767px) and (orientation: portrait)").matches) {
             loadScript("script_mobile.js");
-        } else {
+            $(".sidemenu").css({
+            transform: "translateX(100%)",
+            transition: "transform 0.8s"
+        });
+        }else if (window.matchMedia("(max-width: 1024px) and (orientation: landscape)").matches) {
+            loadScript("script_mobile_landscape.js");
+            $(".sidemenu").css({
+            transform: "translateX(333.5%)",
+            transition: "transform 0.8s"
+        });
+        }else if (window.matchMedia("(min-width: 1025px) and (max-width: 1426px) and (orientation: landscape)").matches) {
+            loadScript("script_mobile_landscape.js");
+            $(".sidemenu").css({
+            transform: "translateX(333.5%)",
+            transition: "transform 0.8s"
+        });
+        }else if (window.matchMedia("(min-width: 768px) and (max-width: 1426px) and (orientation: portrait)").matches) {
+            loadScript("script_mobile.js");
+            $(".sidemenu").css({
+            transform: "translateX(100%)",
+            transition: "transform 0.8s"
+        });
+        }else {
             loadScript("script.js");
         }
     }
@@ -224,11 +246,6 @@ Liiketilan muutostyö ravintolatilaksi valmistui lokakuussa 2024
             </div>
         </div>
     </div>
-
-    <div class="quote">
-        <h2>“Kohde valmistui aikataulussa”</h2>
-    </div>
-
     <div class="info row">
         <div class="mobile_info column">
             <p>

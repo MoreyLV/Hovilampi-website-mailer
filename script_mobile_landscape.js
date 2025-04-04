@@ -1,14 +1,14 @@
 $(document).ready(function() {
     $(".octagon, .octagondubler, .octim").click(function() {
         $(".sidemenu").css({
-            transform: "translateX(0%)",
+            transform: "translateX(233.5%)",
             transition: "transform 0.8s"
         });
     })
 
     $(".backbtn").click(function() {
         $(".sidemenu").css({
-            transform: "translateX(100%)",
+            transform: "translateX(333.5%)",
             transition: "transform 0.8s"
         });
     })

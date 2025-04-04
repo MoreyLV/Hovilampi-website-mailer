@@ -40,14 +40,77 @@ if (empty($_SESSION['csrf_token'])) {
     }
 
     function checkDevice() {
-        if (window.matchMedia("(max-width: 767px)").matches) {
+        if (window.matchMedia("(max-width: 767px) and (orientation: portrait)").matches) {
             loadScript("script_mobile.js");
-        } else {
+            $(".sidemenu").css({
+            transform: "translateX(100%)",
+            transition: "transform 0.8s"
+        });
+        }else if (window.matchMedia("(max-width: 1024px) and (orientation: landscape)").matches) {
+            loadScript("script_mobile_landscape.js");
+            $(".sidemenu").css({
+            transform: "translateX(333.5%)",
+            transition: "transform 0.8s"
+        });
+        }else if (window.matchMedia("(min-width: 1025px) and (max-width: 1426px) and (orientation: landscape)").matches) {
+            loadScript("script_mobile_landscape.js");
+            $(".sidemenu").css({
+            transform: "translateX(333.5%)",
+            transition: "transform 0.8s"
+        });
+        }else if (window.matchMedia("(min-width: 768px) and (max-width: 1426px) and (orientation: portrait)").matches) {
+            loadScript("script_mobile.js");
+            $(".sidemenu").css({
+            transform: "translateX(100%)",
+            transition: "transform 0.8s"
+        });
+        }else {
             loadScript("script.js");
         }
     }
     document.addEventListener("DOMContentLoaded", checkDevice);
     window.addEventListener("resize", checkDevice);
+
+    $(document).ready(function() {
+        $("#sendButton").click(function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the form data
+            var formData = {
+                user_name: $("#name").val(),
+                user_surname: $("#surname").val(),
+                company_name: $("#company-name").val(),
+                email: $("#email").val(),
+                csrf_token: $("input[name='csrf_token']").val()
+            };
+
+            // Send the form data using AJAX
+            $.ajax({
+                type: "POST",
+                url: "send_mail.php",
+                data: formData,
+                success: function(response) {
+                    // Handle success (e.g., show a success message)
+                    alert("Message sent successfully!");
+                    window.location.href = "contact.php"; // Redirect to contact page after sending
+                },
+                error: function(xhr, status, error) {
+                    // Handle error (e.g., show an error message)
+                    alert("Error sending message. Please try again.");
+                }
+            });
+        })
+    });
+    function checkOrientation() {
+    if (window.matchMedia("(orientation: portrait)").matches) {
+        console.log("Портретный режим");
+    } else {
+        console.log("Ландшафтный режим");
+    }
+    window.location.reload(); // Принудительная перезагрузка
+    }
+
+    window.addEventListener("resize", checkOrientation);
     </script>
 </head>
 <body class="column">
@@ -80,7 +143,7 @@ if (empty($_SESSION['csrf_token'])) {
         </div>
     </div>
     <div class="quote CTQadjusted">
-        <h2>“Kohde valmistui aikataulussa”</h2>
+       
     </div>
     <div class="contact-form column animated">    
         <form id="contactForm" class="form column">
