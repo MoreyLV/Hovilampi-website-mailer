@@ -73,9 +73,8 @@ if (empty($_SESSION['csrf_token'])) {
 
     $(document).ready(function() {
         $("#sendButton").click(function(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault();
 
-            // Get the form data
             var formData = {
                 user_name: $("#name").val(),
                 user_surname: $("#surname").val(),
@@ -84,18 +83,15 @@ if (empty($_SESSION['csrf_token'])) {
                 csrf_token: $("input[name='csrf_token']").val()
             };
 
-            // Send the form data using AJAX
             $.ajax({
                 type: "POST",
                 url: "send_mail.php",
                 data: formData,
                 success: function(response) {
-                    // Handle success (e.g., show a success message)
                     alert("Message sent successfully!");
-                    window.location.href = "contact.php"; // Redirect to contact page after sending
+                    window.location.href = "contact.php";
                 },
                 error: function(xhr, status, error) {
-                    // Handle error (e.g., show an error message)
                     alert("Error sending message. Please try again.");
                 }
             });
@@ -107,7 +103,7 @@ if (empty($_SESSION['csrf_token'])) {
     } else {
         console.log("Ландшафтный режим");
     }
-    window.location.reload(); // Принудительная перезагрузка
+    window.location.reload();
     }
 
     window.addEventListener("resize", checkOrientation);

@@ -2807,7 +2807,7 @@ html {
         z-index: 1800;
     }
     .backbtn {
-        margin-top: 45%;
+        margin-top: 15%;
         padding: 5% 5%;
         background-color: #3a3939;
         border: transparent;
@@ -2816,7 +2816,7 @@ html {
         pointer-events: all;
     }
     .backbtn:active{
-        margin-top: 45%;
+        margin-top: 15%;
         padding: 5% 5%;
         background-color: #3a3939;
         border: transparent;
@@ -3139,6 +3139,130 @@ html {
     }
 }
 /*Desktop styles (Smaller than 1920x1080)*/
-@media screen and (min-width: 1025px) {
-    
+@media screen and (min-width: 1025px) and (max-width: 1919px) {
+    .contact-form {
+        display: flex;
+        position: absolute;
+        background-color: #3a3939;
+        min-width: 33%;
+        min-height: 60vh;
+        top: 23.5%;
+        left: 58.5%;
+        border-radius: 12px;
+        z-index: 1003;
+        justify-content: center;
+        align-items: center;
+        padding: 3% 5%;
+        box-sizing: border-box;
+        font-size: 1.5em;
+        opacity: 0;
+        pointer-events: none;
+        cursor: none;
+        transition: 0.3s ease-in-out;
+    }
+    .show-form{
+        opacity: 1;
+        pointer-events: all;
+        cursor: default;
+    }
+    .form {
+        display: flex;
+        align-items: center;
+        height: 90%;
+        margin-top: 15%;
+        margin-bottom: 45%;
+        margin-left: -3%;
+        box-sizing: border-box;
+        scale: 1.5;
+        font-family: Lato;
+        transition: 0.3s ease-in-out;
+    }
+    .form input {
+        min-width: 50%;
+        box-sizing: border-box;
+        height: 2em;
+        padding: 0% 5%;
+        padding-top: 1%;
+        border-radius: 10px;
+        border-color: transparent;
+    }
+    .form-devider {
+        min-width: 11.5%;
+    }
+    .between {
+        display: flex;
+        justify-content: space-around;
+    }
+    #name {
+        margin-left: -4%;
+    }
+    #company-name {
+        margin-top: 10%;
+        margin-left: 2.8%;
+        min-width: 111.5%;
+    }
+    #email {
+        margin-top: 10%;
+        margin-left: 2.8%;
+        min-width: 111.5%;
+    }
+    .form-button {
+        position: absolute;
+        margin-top: 60%;
+        border: 1px solid rgb(165, 162, 162);
+        border-radius: 15px;
+        padding: 5% 20%;
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: bold;
+        background-color: #9c9a9a;
+        color: white;
+        transition: 0.3s ease-in-out;
+    }
+    form h1 {
+        top: -40%;
+        text-wrap: nowrap;
+        left: 28%;
+        position: absolute;
+        font-size: 1.5em !important;
+    }
+    .form-button:hover {
+        background-color: #5e5c5c;
+        border-color: #9c9a9a;
+    }
+    .form-button:active {
+        background-color: white;
+        color: #000000;
+    }
+    .CTdata {
+        overflow: hidden;
+    }
+    .close {
+        position: absolute;
+        width: 10%;
+        background-color: #ffffff;
+        padding: 0.5%;
+        box-sizing: content-box;
+        border-radius: 35px;
+        padding-bottom: 5%;
+        overflow: hidden;
+        transform: rotateZ(-90deg);
+        top: -50%;
+        left: 10%;
+        transition: 0.3s ease-in-out;
+    }
+    .close img{
+        width: 100%;
+        transition: 0.3s ease-in-out;
+    }
+    .close:hover img{
+        transform: translateY(15%);
+        transition: 0.1s ;
+    }
+    .close:active img{
+        transform: translateY(60%);
+    }
+    .spamptc {
+        visibility: none;
+    }
 }
