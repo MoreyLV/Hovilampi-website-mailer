@@ -2,146 +2,197 @@
 <html>
 
 <head>
+    <!-- Set character encoding -->
     <meta charset="utf-8">
+    <!-- Compatibility with older versions of Internet Explorer -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Page title -->
     <title></title>
+    <!-- Meta description (empty for now) -->
     <meta name="description" content="">
+    <!-- Set viewport for responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Animate.css library for animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Google Fonts: Lato family -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- WOW.js library for triggering animations on scroll -->
     <script src="wow.min.js"></script>
     <script>
+        // Initialize WOW animations
         new WOW().init();
     </script>
+
     <script>
+        // Reload the stylesheet after 500ms to avoid caching issues
         setTimeout(() => {
-        const cssLink = document.querySelector("link[href*='styles.css']");
-        if (cssLink) {
-            cssLink.href = cssLink.href.split("?")[0] + "?v=" + new Date().getTime();
-        }
+            const cssLink = document.querySelector("link[href*='styles.css']");
+            if (cssLink) {
+                cssLink.href = cssLink.href.split("?")[0] + "?v=" + new Date().getTime();
+            }
         }, 500);
 
+        // Function to load a JavaScript file dynamically
         function loadScript(src) {
-        const script = document.createElement("script");
-        script.src = src;
-        script.type = "text/javascript";
-        script.async = true;
-        document.head.appendChild(script);
-    }
-
-    function checkDevice() {
-        if (window.matchMedia("(max-width: 767px) and (orientation: portrait)").matches) {
-            loadScript("script_mobile.js");
-            $(".sidemenu").css({
-            transform: "translateX(100%)",
-            transition: "transform 0.8s"
-        });
-        }else if (window.matchMedia("(max-width: 1024px) and (orientation: landscape)").matches) {
-            loadScript("script_mobile_landscape.js");
-            $(".sidemenu").css({
-            transform: "translateX(333.5%)",
-            transition: "transform 0.8s"
-        });
-        }else if (window.matchMedia("(min-width: 1025px) and (max-width: 1426px) and (orientation: landscape)").matches) {
-            loadScript("script_mobile_landscape.js");
-            $(".sidemenu").css({
-            transform: "translateX(333.5%)",
-            transition: "transform 0.8s"
-        });
-        }else if (window.matchMedia("(min-width: 768px) and (max-width: 1426px) and (orientation: portrait)").matches) {
-            loadScript("script_mobile.js");
-            $(".sidemenu").css({
-            transform: "translateX(100%)",
-            transition: "transform 0.8s"
-        });
-        }else {
-            loadScript("script.js");
+            const script = document.createElement("script");
+            script.src = src;
+            script.type = "text/javascript";
+            script.async = true;
+            document.head.appendChild(script);
         }
-    }
-    document.addEventListener("DOMContentLoaded", checkDevice);
-    window.addEventListener("resize", checkDevice);
+
+        // Check the device screen size and orientation, load appropriate script and style the sidebar
+        function checkDevice() {
+            if (window.matchMedia("(max-width: 767px) and (orientation: portrait)").matches) {
+                // Mobile portrait
+                loadScript("script_mobile.js");
+                $(".sidemenu").css({
+                    transform: "translateX(100%)",
+                    transition: "transform 0.8s"
+                });
+            } else if (window.matchMedia("(max-width: 1024px) and (orientation: landscape)").matches) {
+                // Mobile landscape
+                loadScript("script_mobile_landscape.js");
+                $(".sidemenu").css({
+                    transform: "translateX(333.5%)",
+                    transition: "transform 0.8s"
+                });
+            } else if (window.matchMedia("(min-width: 1025px) and (max-width: 1426px) and (orientation: landscape)").matches) {
+                // Tablet landscape
+                loadScript("script_mobile_landscape.js");
+                $(".sidemenu").css({
+                    transform: "translateX(333.5%)",
+                    transition: "transform 0.8s"
+                });
+            } else if (window.matchMedia("(min-width: 768px) and (max-width: 1426px) and (orientation: portrait)").matches) {
+                // Tablet portrait
+                loadScript("script_mobile.js");
+                $(".sidemenu").css({
+                    transform: "translateX(100%)",
+                    transition: "transform 0.8s"
+                });
+            } else {
+                // Desktop view
+                loadScript("script.js");
+            }
+        }
+
+        // Run device check when page is loaded
+        document.addEventListener("DOMContentLoaded", checkDevice);
+        // Also check on window resize
+        window.addEventListener("resize", checkDevice);
     </script>
 </head>
+
+<!-- Octagon icon displayed above body (likely for menu trigger) -->
 <div class="octagon">
     <div class="octagondubler"></div>
     <img class="octim" src="bars-solid.png">
 </div>
+
 <body class="column">
-        <div class="sidemenu column">
-            <a href="index.html" class="current">Main page</a>
-            <a href="references.html">References</a>
-            <a href="contact.php">Information</a>
-            <button class="backbtn"><img src="arrowb.svg"></button>
-        </div>
-    
-        <div class="case_build column">
-            <div class="fixer">1</div>
-            <div class="case_limiter row">
-                <div class="building im1">
-                    <img src="bgf2.png">
-                </div>
-                <div class="building im2">
-                    <img src="bgf1.png">
-                </div>
-                <div class="building im3">
-                    <img src="bgf3.png">
-                </div>
+    <!-- Sidebar navigation menu -->
+    <div class="sidemenu column">
+        <a href="index.html" class="current">Main page</a>
+        <a href="references.html">References</a>
+        <a href="contact.php">Information</a>
+        <button class="backbtn"><img src="arrowb.svg"></button>
+    </div>
+
+    <!-- Section showing company branding and description -->
+    <div class="case_build column">
+        <div class="fixer">1</div> <!-- Likely used for layout/spacing or mobile fix -->
+        <div class="case_limiter row">
+            <!-- Background building images -->
+            <div class="building im1">
+                <img src="bgf2.png">
             </div>
-            <h1 class="animate__animated animate__fadeIn wow">Rakennuskonsultti M. Hovilampi</h1>
+            <div class="building im2">
+                <img src="bgf1.png">
+            </div>
+            <div class="building im3">
+                <img src="bgf3.png">
+            </div>
+        </div>
+        <!-- Company name with animation -->
+        <h1 class="animate__animated animate__fadeIn wow">Rakennuskonsultti M. Hovilampi</h1>
+        <!-- Company service description -->
+        <p>
+            Kokenut työnjohtaja tarjoaa luotettavaa rakennuskonsultointia Uudellamaalla, auttaen projektinhallinnassa, tarjouskilpailuissa, urakoitsijan valinnassa ja materiaalihankinnoissa – myös saaristossa.
+        </p>
+    </div>
+
+    <!-- Project 1: Espoon Vesimylly -->
+    <div class="content row">
+        <div class="desc animate__animated animate__fadeInLeft wow column">
+            <h3>Espoon Vesimylly</h3>
             <p>
-                Kokenut työnjohtaja tarjoaa luotettavaa rakennuskonsultointia Uudellamaalla, auttaen projektinhallinnassa, tarjouskilpailuissa, urakoitsijan valinnassa ja materiaalihankinnoissa – myös saaristossa.
+                Yhteistyö arkkitehtien kanssa<br>
+                Laadun ja turvallisuuden valvonta<br>
+                Aikataulujen ja budjetin valvonta
             </p>
         </div>
-        <div class="content row">
-            <div class="desc animate__animated animate__fadeInLeft wow column">
-                <h3>Espoon Vesimylly</h3>
-                <p>
-                    Yhteistyö arkkitehtien kanssa<br>
-                    Laadun ja turvallisuuden valvonta<br>
-                    Aikataulujen ja budjetin valvonta
-                </p>
-            </div>
-            <div class="foto animate__animated animate__fadeInRight wow">
-                <img src="yhtio-nelio.png">
-            </div>
+        <div class="foto animate__animated animate__fadeInRight wow">
+            <img src="yhtio-nelio.png">
         </div>
-        <div class="content row mobileinverted">
-            <div class="foto  animate__animated animate__fadeInLeft wow left">
-                <img src="santapellonkuja-espoo.jpg">
-            </div>
-            <div class="desc right  animate__animated animate__fadeInRight wow column">
-                <h3>Santapellonkuja, Espoo</h3>
-                <p>
-                    Saneeraustyömaan suunnitellun toteutumisen valvonta<br> Aliurakoitsijoiden opastus ja valvonta<br> Laadun ja työturvallisuuden valvonta
-                </p>
-            </div>
+    </div>
+
+    <!-- Project 2: Santapellonkuja -->
+    <div class="content row mobileinverted">
+        <div class="foto animate__animated animate__fadeInLeft wow left">
+            <img src="santapellonkuja-espoo.jpg">
         </div>
-        <div class="content row">
-            <div class="desc animate__animated animate__fadeInLeft wow column">
-                <h3>Järvenpään Suvi</h3>
-                <p>
-                    Yhteistyö arkkitehtien kanssa<br> Laadun ja turvallisuuden valvonta<br> Aikataulujen ja budjetin valvonta
-                </p>
-            </div>
-            <div class="foto animate__animated animate__fadeInRight wow">
-                <img src="Jarvenpaan_Suvi_ulkokuva_05-1-1024x681.jpg">
-            </div>
+        <div class="desc right animate__animated animate__fadeInRight wow column">
+            <h3>Santapellonkuja, Espoo</h3>
+            <p>
+                Saneeraustyömaan suunnitellun toteutumisen valvonta<br>
+                Aliurakoitsijoiden opastus ja valvonta<br>
+                Laadun ja työturvallisuuden valvonta
+            </p>
         </div>
-        <div class="info row">
-            <div class="mobile_info column">
-                <p>
-                    M. Hovilampi Consulting Oy<br> +358503871655
-                </p>
-            </div>
-            <div class="separator ">.</div>
-            <div class="mobile_info_right column">
-                <p>
-                    Tuokkostie 2<br> 02710 Espoo<br> 3460437-1
-                </p>
-            </div>
+    </div>
+
+    <!-- Project 3: Järvenpään Suvi -->
+    <div class="content row">
+        <div class="desc animate__animated animate__fadeInLeft wow column">
+            <h3>Järvenpään Suvi</h3>
+            <p>
+                Yhteistyö arkkitehtien kanssa<br>
+                Laadun ja turvallisuuden valvonta<br>
+                Aikataulujen ja budjetin valvonta
+            </p>
         </div>
+        <div class="foto animate__animated animate__fadeInRight wow">
+            <img src="Jarvenpaan_Suvi_ulkokuva_05-1-1024x681.jpg">
+        </div>
+    </div>
+
+    <!-- Footer information -->
+    <div class="info row">
+        <!-- Left side: company name and phone -->
+        <div class="mobile_info column">
+            <p>
+                M. Hovilampi Consulting Oy<br> +358503871655
+            </p>
+        </div>
+        <!-- Center separator dot -->
+        <div class="separator ">.</div>
+        <!-- Right side: address and company ID -->
+        <div class="mobile_info_right column">
+            <p>
+                Tuokkostie 2<br> 02710 Espoo<br> 3460437-1
+            </p>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -32,7 +32,7 @@ session_start();
     $mail->Port = 587;
     
     $mail->setFrom('hovilampirakennuskonsultti@gmail.com');
-    $mail->addAddress('vvedensky440@gmail.com');
+    $mail->addAddress(''); // <-- Write your email inside of ''
     $mail->isHTML(true);
     
     $mail->Subject = 'Uusi Palautepyyntö';

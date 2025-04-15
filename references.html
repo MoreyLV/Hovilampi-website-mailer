@@ -1,63 +1,94 @@
 <!DOCTYPE html>
+<!-- Declares the document type and version of HTML -->
+
 <html>
 
 <head>
+    <!-- Character encoding set to UTF-8 -->
     <meta charset="utf-8">
+    <!-- Ensures compatibility with Internet Explorer -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
+    <!-- Description of the page (currently empty) -->
     <meta name="description" content="">
+    <!-- Enables responsive behavior on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- jQuery library for DOM manipulation -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Custom stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Animate.css for CSS-based animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
+    <!-- Google Fonts: Lato font family -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <!-- WOW.js animation library -->
     <script src="wow.min.js"></script>
+    
+    <!-- Initialize WOW.js animations -->
     <script>
         new WOW().init();
     </script>
+    
+    <!-- Device check and script loader -->
     <script>
+        // Dynamically loads external script files
         function loadScript(src) {
-        const script = document.createElement("script");
-        script.src = src;
-        script.type = "text/javascript";
-        script.async = true;
-        document.head.appendChild(script);
-    }
-
-    function checkDevice() {
-        if (window.matchMedia("(max-width: 767px) and (orientation: portrait)").matches) {
-            loadScript("script_mobile.js");
-            $(".sidemenu").css({
-            transform: "translateX(100%)",
-            transition: "transform 0.8s"
-        });
-        }else if (window.matchMedia("(max-width: 1024px) and (orientation: landscape)").matches) {
-            loadScript("script_mobile_landscape.js");
-            $(".sidemenu").css({
-            transform: "translateX(333.5%)",
-            transition: "transform 0.8s"
-        });
-        }else if (window.matchMedia("(min-width: 1025px) and (max-width: 1426px) and (orientation: landscape)").matches) {
-            loadScript("script_mobile_landscape.js");
-            $(".sidemenu").css({
-            transform: "translateX(333.5%)",
-            transition: "transform 0.8s"
-        });
-        }else if (window.matchMedia("(min-width: 768px) and (max-width: 1426px) and (orientation: portrait)").matches) {
-            loadScript("script_mobile.js");
-            $(".sidemenu").css({
-            transform: "translateX(100%)",
-            transition: "transform 0.8s"
-        });
-        }else {
-            loadScript("script.js");
+            const script = document.createElement("script");
+            script.src = src;
+            script.type = "text/javascript";
+            script.async = true;
+            document.head.appendChild(script);
         }
-    }
-    document.addEventListener("DOMContentLoaded", checkDevice);
-    window.addEventListener("resize", checkDevice);
+
+        // Detects screen size and orientation, then loads the appropriate JS file
+        function checkDevice() {
+            // Portrait phones
+            if (window.matchMedia("(max-width: 767px) and (orientation: portrait)").matches) {
+                loadScript("script_mobile.js");
+                $(".sidemenu").css({
+                    transform: "translateX(100%)",
+                    transition: "transform 0.8s"
+                });
+            // Landscape tablets and phones
+            } else if (window.matchMedia("(max-width: 1024px) and (orientation: landscape)").matches) {
+                loadScript("script_mobile_landscape.js");
+                $(".sidemenu").css({
+                    transform: "translateX(333.5%)",
+                    transition: "transform 0.8s"
+                });
+            // Mid-sized landscape screens
+            } else if (window.matchMedia("(min-width: 1025px) and (max-width: 1426px) and (orientation: landscape)").matches) {
+                loadScript("script_mobile_landscape.js");
+                $(".sidemenu").css({
+                    transform: "translateX(333.5%)",
+                    transition: "transform 0.8s"
+                });
+            // Mid-sized portrait screens
+            } else if (window.matchMedia("(min-width: 768px) and (max-width: 1426px) and (orientation: portrait)").matches) {
+                loadScript("script_mobile.js");
+                $(".sidemenu").css({
+                    transform: "translateX(100%)",
+                    transition: "transform 0.8s"
+                });
+            // Default: desktop
+            } else {
+                loadScript("script.js");
+            }
+        }
+
+        // Runs checkDevice when DOM is ready and on window resize
+        document.addEventListener("DOMContentLoaded", checkDevice);
+        window.addEventListener("resize", checkDevice);
     </script>
 </head>
+
 <body class="column">
+    <!-- Sidebar navigation menu -->
     <div class="sidemenu column">
         <a href="index.html">Main page</a>
         <a href="references.html" class="current">References</a>
@@ -65,6 +96,7 @@
         <button class="backbtn"><img src="arrowb.svg"></button>
     </div>
 
+    <!-- Top section with title and menu icon -->
     <div class="RFgreet column">
         <div class="integrator">
             <div class="octagon">
@@ -76,85 +108,123 @@
             <h1>References</h1>
         </div>
     </div>
+
+    <!-- List of project references -->
     <div class="references column">
+
+        <!-- Example reference entry with animation -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
+                    <!-- Project description -->
                     2012-2013 As Oy Helsingin Pirja (työnjohtaja)<br>
                     Kohteessa 27 asuntoa, 2-kerroksisia rivi-ja paritaloja
                 </div>
+                <!-- Map links section -->
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class=" devider row"><a href="https://maps.app.goo.gl/GEvNzqCd3u5jQZHBA" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/Qkrmggt7EGtEdm6H7" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <!-- Google Maps and Street View links -->
+                            <a href="https://maps.app.goo.gl/GEvNzqCd3u5jQZHBA" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/Qkrmggt7EGtEdm6H7" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+            <!-- Project: As Oy Helsingin Samo -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
+                <!-- Project description -->
                 <div class="RFdesc">
                     2013-2014 As Oy Helsingin Samo (työnjohtaja)<br>
-Kohteessa 24 asuntoa, 2-kerroksisia rivi- ja paritaloasuntoja
+                    Kohteessa 24 asuntoa, 2-kerroksisia rivi- ja paritaloasuntoja
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/qjT12UGivk2o4uZPA" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/6r18dpcFL3iFXZvR6" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <!-- Google Maps and Street View links -->
+                            <a href="https://maps.app.goo.gl/qjT12UGivk2o4uZPA" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/6r18dpcFL3iFXZvR6" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: Vantaan Torppari -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
                     2014 Vantaan Torppari (työnjohtaja) <br>
-Kohteessa 20 asuntoa 2- kerroksisia rivitaloja
+                    Kohteessa 20 asuntoa 2- kerroksisia rivitaloja
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/m4sxyK9a8HR1rrEf9" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/RXe5GzNe1qocA3iv6" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="https://maps.app.goo.gl/m4sxyK9a8HR1rrEf9" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/RXe5GzNe1qocA3iv6" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: As Oy Kirkkonummen Sokeritehtaantie -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
                     2014-2015 As Oy Kirkkonummen Sokeritehtaantie (työnjohtaja)<br> 
-Kohteessa 34 asuntoa, 2- kerroksisia rivi- ja paritaloja
+                    Kohteessa 34 asuntoa, 2- kerroksisia rivi- ja paritaloja
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/6GhmA3nBMatpKYGc6" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/U3vs8epgrvL2TU2A7" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="https://maps.app.goo.gl/6GhmA3nBMatpKYGc6" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/U3vs8epgrvL2TU2A7" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: As Oy Espoon Luotsi ja Toppi -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
                     2015-2016 As Oy Espoon Luotsi ja Toppi (työnjohtaja) <br>
-Kohteissa yhteensä 57 asuntoa, 2-kerroksisia pienkerrostaloja
+                    Kohteissa yhteensä 57 asuntoa, 2-kerroksisia pienkerrostaloja
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/Pns3JHrREZ3wWr1J8" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/fWdpw4EUoPZXXCR88" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="https://maps.app.goo.gl/Pns3JHrREZ3wWr1J8" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/fWdpw4EUoPZXXCR88" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: Keva Kerava care home -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
                     2016-2017 Keva Kerava kehitysvammaisten hoivakoti (vastaava työnjohtaja)<br>
-Päärakennus ja 2-rivitalomuotoista asuinrakennusta, joissa yhteensä 12 asuntoa. 
+                    Päärakennus ja 2-rivitalomuotoista asuinrakennusta, joissa yhteensä 12 asuntoa. 
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/BDLpv9RZeUKAwSjz7" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/Aeym8QXZWHpgUd5WA" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="https://maps.app.goo.gl/BDLpv9RZeUKAwSjz7" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/Aeym8QXZWHpgUd5WA" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: Daycare Sipoon Tasbyntie 26 -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
@@ -162,90 +232,124 @@ Päärakennus ja 2-rivitalomuotoista asuinrakennusta, joissa yhteensä 12 asunto
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/LhbS1Mb7tj69fs726" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/TPDKf5bP5Y1P11gi9" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="https://maps.app.goo.gl/LhbS1Mb7tj69fs726" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/TPDKf5bP5Y1P11gi9" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: As Oy Vantaan Runotie 6c -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
                     2017-2018 As Oy Vantaan Runotie 6c (vastaava työnjohtaja)<br>
-Kohteessa 17 asuntoa. Rivi- ja paritaloja. 
+                    Kohteessa 17 asuntoa. Rivi- ja paritaloja. 
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/bH8vfJR3C1xzsQ3XA" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/ibsCj2inYATpN5j56" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="https://maps.app.goo.gl/bH8vfJR3C1xzsQ3XA" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/ibsCj2inYATpN5j56" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: As Oy Järvenpään Suvi -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
                     2018-2019 As Oy Järvenpään Suvi 23 asuntoa (vastaava työnjohtaja).<br>
-Rivi- ja paritaloasuntoja
+                    Rivi- ja paritaloasuntoja
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/ARvX4qfVyyx1A12R7" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/ARvX4qfVyyx1A12R7" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="https://maps.app.goo.gl/ARvX4qfVyyx1A12R7" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/ARvX4qfVyyx1A12R7" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: TA Donabacka -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
                     2019-2021 TA asumisoikeus Donabacka 16 asuntoa rivitaloja (Espoo)
-(vastaava työnjohtaja)  
+                    (vastaava työnjohtaja)  
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/b3jF1jappy3zFuLs7" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/RAd25oPRQVBwAjw68" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="https://maps.app.goo.gl/b3jF1jappy3zFuLs7" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/RAd25oPRQVBwAjw68" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: TA Santapellonkuja -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
                     2019-2021 TA asumisoikeus Santapellonkuja, Espoo
-11 asuntoa, rivitalo ja paritaloja
+                    11 asuntoa, rivitalo ja paritaloja
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/25z8oUvuwbPuCoCV9" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/GeNPTGHgcCVyufUr8" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="https://maps.app.goo.gl/25z8oUvuwbPuCoCV9" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/GeNPTGHgcCVyufUr8" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: Puukoti Group Oy -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
                     2022-2024 Puukoti Group Oy 33 asuntoa <br>
-2 rivitaloa ja 2 luhtitaloa 
+                    2 rivitaloa ja 2 luhtitaloa 
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="" target="_blank" rel="noopener noreferrer">Google maps</a><a href="" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Project: Hämeentie 10 renovation -->
         <div class="showcase animate__animated animate__fadeInUp wow">
             <div class="RFdev column">
                 <div class="RFdesc">
                     1.6-1.10.2024 Hämeentie 10, Helsinki<br>
-Liiketilan muutostyö ravintolatilaksi valmistui lokakuussa 2024 
+                    Liiketilan muutostyö ravintolatilaksi valmistui lokakuussa 2024 
                 </div>
                 <div class="mapview row">
                     <div class="googlemap column">
-                        <div class="devider row"><a href="https://maps.app.goo.gl/YYnxKWXJ86SEeF3j8" target="_blank" rel="noopener noreferrer">Google maps</a><a href="https://maps.app.goo.gl/Vifqpwvo86pyTe129" target="_blank" rel="noopener noreferrer">Street view</a></div>
+                        <div class="devider row">
+                            <a href="https://maps.app.goo.gl/YYnxKWXJ86SEeF3j8" target="_blank" rel="noopener noreferrer">Google maps</a>
+                            <a href="https://maps.app.goo.gl/Vifqpwvo86pyTe129" target="_blank" rel="noopener noreferrer">Street view</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    <!-- Footer information -->
     <div class="info row">
         <div class="mobile_info column">
             <p>
