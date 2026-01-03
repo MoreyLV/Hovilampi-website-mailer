@@ -26,8 +26,8 @@ session_start();
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'hovilampirakennuskonsultti@gmail.com';
-    $mail->Password = 'gxld sdkg sikl cuad';
+    $mail->Username = '------------';
+    $mail->Password = '------------';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
     
