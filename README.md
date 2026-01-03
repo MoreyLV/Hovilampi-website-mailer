@@ -1,6 +1,13 @@
 # Hovilampi Website
 
-Personal website commissioned by Mr. Hovilampi to showcase his professional work
+Personal website commissioned by Mr. Hovilampi to showcase his professional work. 
+The project is one of the first and lacks a strict, standardized, and properly structured structure. 
+Despite all this, I believe it's a good example of a first acceptable project.
+
+Thanks to the designer for developing the website design.
+You can see the website's appearance on the designer's website.
+
+https://troyromppanen.publicvm.com/works in the "Digiduunit" section.
 
 ## 🚀 Features
 
@@ -9,35 +16,5 @@ Personal website commissioned by Mr. Hovilampi to showcase his professional work
 - Smooth scroll and animation effects (WOW.js)
 - Modular scripts for mobile and landscape handling
 
-## 📂 Project Structure
-
-/
-├── index.html                 # Homepage
-├── contact.php               # Contact page with a form
-├── references.html           # References/testimonials page
-├── send_mail.php             # Sends form data via email
-├── styles.css                # Core styling
-├── script.js                 # JS for desktop
-├── script_mobile.js         # JS for mobile
-├── script_mobile_landscape.js # JS for landscape view
-├── PHPMailer-master/        # PHPMailer library
-└── assets/                   # Images and SVGs
-
-## 📧 Contact Form Setup
-
-The form (`contact.php`) sends data to `send_mail.php`, which uses PHPMailer to send the email.
-
-## 📦 Requirements
-
-- PHP 7.0+
-
-## 🛠 Installation
-
-1. Upload files to your server directory (e.g., `public_html/`)
-2. Make sure PHP is enabled
-3. Configure SMTP in `send_mail.php` by writing own email to "$mail->addAddress('')";
-4. Test the form on the `contact.php` page
-
-## 📄 License
-
-This project is proprietary. No license specified.
+Please note that graphic content is protected by copyright of it's owners and may not be used in any way without it's owners permisson.
+However you van use any .html, .css, .php, .js files after deleting  personal information from files.
